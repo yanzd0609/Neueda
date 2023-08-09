@@ -1,0 +1,9 @@
+﻿1.打开MySQL终端，创建database stock
+CREATE database stock;
+2.安装python包 
+Pip install pymysql
+Pip install pandas
+3.运行创建表的python脚本
+createTable.py
+4.把所有csv文件放到dataset文件夹中,运行导入数据的python脚本
+Csv2mysql.py
