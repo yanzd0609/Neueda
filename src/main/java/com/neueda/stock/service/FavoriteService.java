@@ -1,6 +1,6 @@
-package service;
+package com.neueda.stock.service;
 
-import entity.FavoriteRecord;
+import com.neueda.stock.entity.FavoriteRecord;
 
 public class FavoriteService {
 	

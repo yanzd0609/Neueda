@@ -1,4 +1,4 @@
-package com.neueda;
+package com.neueda.stock;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

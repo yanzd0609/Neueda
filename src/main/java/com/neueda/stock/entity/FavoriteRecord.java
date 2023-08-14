@@ -1,10 +1,13 @@
-package entity;
+package com.neueda.stock.entity;
 
-import org.springframework.stereotype.Component;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
-@Component
+@Entity
 public class FavoriteRecord {
-	
+	@Id
+	@Column(name="stocksymbol")
 	private String stocksymbol;// favorited stock symbol
 	private String Date;       // favorite stock date
 	

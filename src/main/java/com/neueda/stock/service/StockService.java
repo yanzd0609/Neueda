@@ -1,12 +1,11 @@
-package service;
+package com.neueda.stock.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
-import entity.StockRecord;
+import com.neueda.stock.entity.StockRecord;
 
 @Service
 public class StockService {
