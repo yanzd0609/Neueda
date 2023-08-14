@@ -33,7 +33,7 @@ public class FavoriteService {
 	/*delete a favorited stock record
 	 * return all stock record
 	 * */
-	public List<FavoriteRecord> delete(int id){
+	public List<FavoriteRecord> delete(String id){
 		if(repo.findById(id).isPresent()) { // whether the delete favorited record is exist
 			repo.deleteById(id);// if it exists, delete it
 			 return repo.findAll();//
