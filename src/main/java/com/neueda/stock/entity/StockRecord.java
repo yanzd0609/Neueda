@@ -3,12 +3,14 @@ package com.neueda.stock.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
 
 /* Stock Entity
  * */
 @Table(name="stock_record")
 @Entity
+@IdClass(SRMultiKeys.class)
 public class StockRecord {
 	@Id
 	@Column(name="stock_symbol")
