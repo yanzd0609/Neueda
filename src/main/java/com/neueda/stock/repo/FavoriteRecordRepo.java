@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.neueda.stock.entity.FavoriteRecord;
 
 @Repository
-public interface FavoriteRecordRepo extends JpaRepository<FavoriteRecord,Integer>{
+public interface FavoriteRecordRepo extends JpaRepository<FavoriteRecord,String>{
 
 }
