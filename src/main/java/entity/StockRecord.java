@@ -11,7 +11,7 @@ public class StockRecord {
 	private float close;  //stock close price
 	private float high;   //stock high price
 	private float low;    //stock low price
-	private long volumn;  //The number of shares of that stock that were traded during that day.
+	private long volume;  //The number of shares of that stock that were traded during that day.
 	
 	public String getDate() {
 		return date;
@@ -43,11 +43,11 @@ public class StockRecord {
 	public void setLow(float low) {
 		this.low = low;
 	}
-	public long getVolumn() {
-		return volumn;
+	public long getVolume() {
+		return volume;
 	}
-	public void setVolumn(long volumn) {
-		this.volumn = volumn;
+	public void setVolumn(long volume) {
+		this.volume = volume;
 	}
 	
 	
