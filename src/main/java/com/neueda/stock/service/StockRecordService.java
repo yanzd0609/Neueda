@@ -27,10 +27,11 @@ public class StockRecordService {
 	
 	//get a stock record by stock symbol and  by date
 	public StockRecord getStockRecord(String stocksymbol,String date) {
-		if(repo.findById(new SRMultiKeys(stocksymbol,date)).isPresent()) {
-			return repo.findById(new SRMultiKeys(stocksymbol,date)).get();
-		}else {
+		List<StockRecord> records = repo.getStockRecordByDate(stocksymbol,date);
+		if(records.isEmpty()) {
 			return null;
+		}else {
+			return records.get(0);
 		}		
 	}
 	
