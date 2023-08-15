@@ -50,7 +50,7 @@ public class FavoriteController {
 	/*get request
 	 * get the count of  favorited records
 	 *  */ 
-	@GetMapping("/count/")
+	@GetMapping("/count")
 	public ResponseEntity<Integer>getCount (){
 		int count= favoriteService.getCount();
 		if(count>0)
