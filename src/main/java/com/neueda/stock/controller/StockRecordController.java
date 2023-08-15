@@ -47,6 +47,53 @@ public class StockRecordController {
 			return new ResponseEntity<StockRecord>(record, HttpStatus.NOT_FOUND);
 	}
 	
+	@GetMapping("/tendays/{symbol}")
+	public ResponseEntity<Object> getTenRecordBySymbol(@PathVariable String symbol){
+		logger.info("getTenRecordBySymbol:"+symbol);
+		List<StockRecord> records = service.getRecord_ten(symbol);
+		if(records.isEmpty()) {
+			return new ResponseEntity<Object>("No Record Available",HttpStatus.NOT_FOUND);
+			
+		}else {
+			return new ResponseEntity<Object>(records,HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/month/{symbol}")
+	public ResponseEntity<Object> getMonthRecordBySymbol(@PathVariable String symbol){
+		logger.info("getMonthRecordBySymbol:"+symbol);
+		List<StockRecord> records = service.getRecord_month(symbol);
+		if(records.isEmpty()) {
+			return new ResponseEntity<Object>("No Record Available",HttpStatus.NOT_FOUND);
+			
+		}else {
+			return new ResponseEntity<Object>(records,HttpStatus.OK);
+		}
+	}
+	
+	@GetMapping("/year/{symbol}")
+	public ResponseEntity<Object> getYearRecordBySymbol(@PathVariable String symbol){
+		logger.info("getYearRecordBySymbol:"+symbol);
+		List<StockRecord> records = service.getRecord_year(symbol);
+		if(records.isEmpty()) {
+			return new ResponseEntity<Object>("No Record Available",HttpStatus.NOT_FOUND);
+			
+		}else {
+			return new ResponseEntity<Object>(records,HttpStatus.OK);
+		}
+	}
+	@GetMapping("/stocklist")
+	public ResponseEntity<Object> getStockList(){
+		logger.info("getStockList");
+		List<String> stocklist = service.getStockList();
+		if(stocklist.isEmpty()) {
+			return new ResponseEntity<Object>("No Stock Symbol Available",HttpStatus.NOT_FOUND);
+			
+		}else {
+			return new ResponseEntity<Object>(stocklist,HttpStatus.OK);
+		}
+
+	}
 	
 	
 }

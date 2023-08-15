@@ -18,4 +18,7 @@ public interface StockRecordRepo extends JpaRepository<StockRecord,SRMultiKeys>{
 	
 	@Query("SELECT sr from StockRecord sr where sr.stocksymbol=:symbol and sr.date like :date%")
 	List<StockRecord> getStockRecordByDate(@Param("symbol") String symbol,@Param("date") String date);
+	
+	@Query("SELECT distinct sr.stocksymbol from StockRecord sr")
+	List<String> getStockList();
 }

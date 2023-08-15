@@ -60,7 +60,36 @@ public class StockRecordService {
 			return false;
 		}
 	}
-
-		
+	//get records from the past ten days
+	public List<StockRecord> getRecord_ten(String stocksymbol){
+		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		if(allrecords.size()<10) {
+			return allrecords;
+		}else {
+			return allrecords.subList(allrecords.size()-10, allrecords.size());
+		}
+	}
+	//get records from the past 30 days
+	public List<StockRecord> getRecord_month(String stocksymbol){
+		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		if(allrecords.size()<30) {
+			return allrecords;
+		}else {
+			return allrecords.subList(allrecords.size()-30, allrecords.size());
+		}
+	}
+	//get records from the past one year
+	public List<StockRecord> getRecord_year(String stocksymbol){
+		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		if(allrecords.size()<365) {
+			return allrecords;
+		}else {
+			return allrecords.subList(allrecords.size()-365, allrecords.size());
+		}
+	}	
+	//get stock symbol list
+	public List<String> getStockList(){
+		return repo.getStockList();
+	}
 
 }
