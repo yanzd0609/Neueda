@@ -1,5 +1,6 @@
 package com.neueda.stock.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,36 +61,56 @@ public class StockRecordService {
 			return false;
 		}
 	}
+	
+	//modify the date format
+	private void modifyDate(List<StockRecord> list) {
+		
+		for(int i=0;i<list.size();i++) {
+			String oldDate = list.get(i).getDate();
+			list.get(i).setDate(oldDate.substring(0, 10));
+		}
+	}
+	
 	//get records from the past ten days
 	public List<StockRecord> getRecord_ten(String stocksymbol){
 		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		List<StockRecord> result = new ArrayList<StockRecord>();
 		if(allrecords.size()<10) {
-			return allrecords;
+			result = allrecords;
 		}else {
-			return allrecords.subList(allrecords.size()-10, allrecords.size());
+			result =  allrecords.subList(allrecords.size()-10, allrecords.size());
 		}
+		this.modifyDate(result);
+		return result;
 	}
 	//get records from the past 30 days
 	public List<StockRecord> getRecord_month(String stocksymbol){
 		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		List<StockRecord> result = new ArrayList<StockRecord>();
 		if(allrecords.size()<30) {
-			return allrecords;
+			result = allrecords;
 		}else {
-			return allrecords.subList(allrecords.size()-30, allrecords.size());
+			result =  allrecords.subList(allrecords.size()-30, allrecords.size());
 		}
+		this.modifyDate(result);
+		return result;
 	}
 	//get records from the past one year
 	public List<StockRecord> getRecord_year(String stocksymbol){
 		List<StockRecord> allrecords = repo.getStockRecordByStocksymbol(stocksymbol);
+		List<StockRecord> result = new ArrayList<StockRecord>();
 		if(allrecords.size()<365) {
-			return allrecords;
+			result = allrecords;
 		}else {
-			return allrecords.subList(allrecords.size()-365, allrecords.size());
+			result =  allrecords.subList(allrecords.size()-365, allrecords.size());
 		}
+		this.modifyDate(result);
+		return result;
 	}	
 	//get stock symbol list
 	public List<String> getStockList(){
 		return repo.getStockList();
 	}
-
+	
+	
 }
